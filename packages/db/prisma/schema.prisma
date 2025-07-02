@@ -26,7 +26,7 @@ model Merchant{
   id Int @id @default(autoincrement())
   name String?
   email String @unique
-  password String
+  password String?
   number String? @unique 
   auth_type Authtype
 }

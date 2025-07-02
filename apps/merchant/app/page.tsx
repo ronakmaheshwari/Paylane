@@ -2,6 +2,9 @@ import Image from "next/image";
 import { Card } from "@repo/ui/card";
 import { Gradient } from "@repo/ui/gradient";
 import { TurborepoLogo } from "@repo/ui/turborepo-logo";
+import axios from "axios";
+import { getServerSession } from "next-auth";
+import { AuthOption } from "lib/auth";
 
 const LINKS = [
   {
@@ -28,7 +31,8 @@ const LINKS = [
 ];
 
 export  default async function Page() {
-
+  const session = await getServerSession(AuthOption);
+  console.log("Session:", session);
   return (
     <main className="flex flex-col items-center justify-between min-h-screen p-24">
       <div className="z-10 items-center justify-between w-full max-w-5xl font-mono text-sm lg:flex">
